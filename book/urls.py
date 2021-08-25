@@ -1,12 +1,15 @@
 from django.contrib import admin
 from django.urls import path
-from .views import *
+from book import views
 
 
 urlpatterns = [
-    path('',Booklist),
-    path('add/',post_Book),
-    path('update/<int:id>/',update_Book),
-    path('delete/<int:id>/',delete_Book),
+    path('api/', views.BooksListGeneric.as_view()),
+    path('add/', views.BooksListCreate.as_view()),
+    path('retrive/<int:pk>/', views.BooksListRetrive.as_view()),
+    path('update/<int:pk>/', views.BooksListUpdate.as_view()),
+    path('delete/<int:pk>/', views.BooksListDel.as_view()),
+  
    
 ]
+
